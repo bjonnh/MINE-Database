@@ -4,13 +4,14 @@ MAINTAINER James Jeffryes <jamesgjeffryes@gmail.com>
 ENV PATH /opt/conda/bin:$PATH
 ENV LANG C
 
-# 3.7 seems to be supported now
-RUN conda install python=3.7
+# 3.7 still not supported
+RUN conda install python=3.6
 # install the RDKit:
 RUN conda config --add channels  https://conda.anaconda.org/rdkit
 # note including jupyter in this brings in rather a lot of extra stuff
+# We disable cairocffi as it requires python2...    
+#cairocffi \
 RUN conda install -y cairo \
-                     cairocffi \
                      nomkl \
                      pandas \
                      pymongo \
