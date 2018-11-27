@@ -41,7 +41,7 @@ To predict all chemical damage reactions for one generation on compounds in the 
 model one would call `python pickaxe.py -C ./data/ChemicalDamageCoreactants.tsv -r 
 ./data/ChemicalDamageRxnRules.tsv -g 1 -c ./data/iAF1260.tsv`
 
-### Pickaxe docker usage 
+### Pickaxe docker usage 
 
 For testing purpose only:
 ```shell
