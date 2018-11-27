@@ -29,7 +29,7 @@ def establish_db_client():
             admin.authenticate('worker', 'bnice14bot')
         # Local database
         else:
-            client = pymongo.MongoClient(serverSelectionTimeoutMS=5)
+            client = pymongo.MongoClient(host='mongo', serverSelectionTimeoutMS=5)
     except:
         raise IOError("Failed to load database client. Please verify that "
                       "mongod is running")
