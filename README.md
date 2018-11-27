@@ -40,3 +40,18 @@ without database storage. To list all options call `python pickaxe.py -h`.
 To predict all chemical damage reactions for one generation on compounds in the iAF1260 
 model one would call `python pickaxe.py -C ./data/ChemicalDamageCoreactants.tsv -r 
 ./data/ChemicalDamageRxnRules.tsv -g 1 -c ./data/iAF1260.tsv`
+
+### Pickaxe docker usage 
+
+For testing purpose only:
+```shell
+$ docker build -t mine-database .
+$ docker run --rm --name mongo mongo
+$ docker run -it --rm --link mongo:mongo mine-database -d mydatabase
+```
+
+It should create a table mydatabase in your mongo. You can check with docker express using:
+```shell
+$ docker run --link mongo:mongo -p 8081:8081 mongo-express
+```
+and connecting to [Mongo express (localhost)](http://127.0.0.1:8081)
