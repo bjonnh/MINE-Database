@@ -52,6 +52,13 @@ $ docker run -it --rm --link mongo:mongo mine-database -d mydatabase
 
 It should create a table mydatabase in your mongo. You can check with docker express using:
 ```shell
-$ docker run --link mongo:mongo -p 8081:8081 mongo-express
+$ docker run --rm --link mongo:mongo -p 8081:8081 mongo-express
 ```
 and connecting to [Mongo express (localhost)](http://127.0.0.1:8081)
+
+If you want persistence of the data (only on Linux, Windows and OS/X cannot do that with docker it seems)
+```shell
+$ docker run --rm --name mongo -v /my/own/datadir:/data/db mongo
+``` 
+
+and replace */my/own/datadir* by the path on your local machine where the database will be stored
